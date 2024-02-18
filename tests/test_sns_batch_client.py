@@ -63,7 +63,7 @@ async def test_publish(topic, queue):
         response = queue.receive_messages(MaxNumberOfMessages=10)
         if not response:
             break
-        messages.extend((json.loads(message.body) for message in response))
+        messages.extend(json.loads(message.body) for message in response)
 
     assert len(messages) == len(entries)
     for sent, received in zip(entries, messages):

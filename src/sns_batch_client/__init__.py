@@ -85,7 +85,7 @@ class SNSBatchClient:
             )
 
             results["Successful"].extend(response["Successful"])
-            results["Failed"].extend((result for result in response["Failed"] if result["SenderFault"]))
+            results["Failed"].extend(result for result in response["Failed"] if result["SenderFault"])
             errors = {result["Id"]: result for result in response["Failed"] if not result["SenderFault"]}
 
             if errors:
