@@ -32,7 +32,7 @@ async def test_publish(topic, queue):
         {
             "Id": str(uuid.uuid4()),
             "Message": "message",
-            "MessageGroupId": "",
+            "MessageGroupId": "0",
         }
         for i in range(20)
     ]
